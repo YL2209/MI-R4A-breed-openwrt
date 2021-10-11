@@ -25,6 +25,7 @@ sed -i '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA#a\iptables 
 sed -i '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN#a\iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' package/lean/default-settings/files/zzz-default-settings
 
 sed -i '#$(INSTALL_BIN) ./coremark.sh $(1)/etc/#a\$(INSTALL_BIN) ./dr.sh $(1)/etc/dr/' feeds/packages/utils/coremark/Makefile
+sed -i '[ -n "$${IPKG_INSTROOT}" ] || echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\[ -n "$${IPKG_INSTROOT}" ] || echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/Makefile
 
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 #sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
