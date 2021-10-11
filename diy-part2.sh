@@ -19,7 +19,7 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 
 # 修改主机名字，把XXKDB-R4A修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' package/lean/default-settings/files/zzz-default-settings
-sed -i '#echo '[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53' >> /etc/firewall.user#a\iptables -t nat -N PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
+sed -i '#sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user#a\iptables -t nat -N PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
 sed -i '#iptables -t nat -N PrivoxyUA#a\iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
 sed -i '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA#a\iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' package/lean/default-settings/files/zzz-default-settings
 sed -i '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN#a\iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' package/lean/default-settings/files/zzz-default-settings
