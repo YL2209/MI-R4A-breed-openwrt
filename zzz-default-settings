@@ -5,6 +5,7 @@ uci commit luci
 
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
+uci set system.@system[0].hostname='MiWIFI'
 uci commit system
 
 uci set fstab.@global[0].anon_mount=1
@@ -31,7 +32,7 @@ sed -i 's/services/nas/g'  /usr/lib/lua/luci/view/minidlna_status.htm
 ln -sf /sbin/ip /usr/bin/ip
 
 sed -i 's#downloads.openwrt.org#mirrors.cloud.tencent.com/lede#g' /etc/opkg/distfeeds.conf
-sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root::0:0:99999:7:::/root:$1$f2QecoCH$2z6ZS7SynroxrP4I5bd3H.:18729:0:99999:7:::/g' /etc/shadow
 
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
 sed -i '/openwrt_luci/ { s/snapshots/releases\/18.06.9/g; }'  /etc/opkg/distfeeds.conf
@@ -41,6 +42,11 @@ echo 'iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53'
 echo 'iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53' >> /etc/firewall.user
 echo '[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53' >> /etc/firewall.user
 echo '[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53' >> /etc/firewall.user
+echo 'iptables -t nat -N PrivoxyUA' >> /etc/firewall.user
+echo 'iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' >> /etc/firewall.user
+echo 'iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' >> /etc/firewall.user
+echo 'iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' >> /etc/firewall.user
+echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 443 -j REDIRECT --to-ports 8118' >> /etc/firewall.user
 
 sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
@@ -48,7 +54,7 @@ sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 echo "DISTRIB_REVISION='R21.10.1'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
-echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='星新课代表 '" >> /etc/openwrt_release
 
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
