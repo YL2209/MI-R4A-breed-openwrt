@@ -94,7 +94,8 @@ jobs:
         mv bg/main_bg.jpg openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg.jpg
         mv bg/main_bg_5k.jpg openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg       
         mv banner openwrt/package/base-files/files/etc/banner
-        
+        mv dr.sh openwrt/feeds/packages/utils/coremark
+
     - name: SSH 开启
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
