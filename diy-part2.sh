@@ -19,14 +19,14 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 
 # 修改主机名字，把XXKDB-R4A修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' package/lean/default-settings/files/zzz-default-settings
-sed -i '#sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user#a\iptables -t nat -N PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
-sed -i '#iptables -t nat -N PrivoxyUA#a\iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
-sed -i '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA#a\iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' package/lean/default-settings/files/zzz-default-settings
-sed -i '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN#a\iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' package/lean/default-settings/files/zzz-default-settings
+#sed -i '#sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user#a\iptables -t nat -N PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
+#sed -i '#iptables -t nat -N PrivoxyUA#a\iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
+#sed -i '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA#a\iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' package/lean/default-settings/files/zzz-default-settings
+#sed -i '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN#a\iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' package/lean/default-settings/files/zzz-default-settings
 
-sed -i '#$(INSTALL_BIN) ./coremark.sh $(1)/etc/#a\$(INSTALL_BIN) ./dr.sh $(1)/etc/dr/' feeds/packages/utils/coremark/Makefile
-sed -i '[ -n "$${IPKG_INSTROOT}" ] || echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\[ -n "$${IPKG_INSTROOT}" ] || echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/Makefile
-sed -i '#echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/coremark
+#sed -i '#$(INSTALL_BIN) ./coremark.sh $(1)/etc/#a\$(INSTALL_BIN) ./dr.sh $(1)/etc/dr/' feeds/packages/utils/coremark/Makefile
+#sed -i '[ -n "$${IPKG_INSTROOT}" ] || echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\[ -n "$${IPKG_INSTROOT}" ] || echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/Makefile
+#sed -i '#echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/coremark
 
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 #sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
@@ -137,4 +137,3 @@ sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/w
 #使用sed 在第四行后添加新字
 #sed -e 120a\set wireless.default_radio${devidx}.key=XXKDB-R4A package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i '/set wireless.default_radio${devidx}.encryption=psk2/a\set wireless.default_radio${devidx}.key=password' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
