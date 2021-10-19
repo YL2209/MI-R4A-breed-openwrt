@@ -30,12 +30,12 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' packag
 
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 #sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-sed -i "s/OpenWrt /星新课代表 /g" package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt /星新课代表 /g' package/lean/default-settings/files/zzz-default-settings
 
 #更改主机型号，支持中文。 
 sed -i 's/model = "Xiaomi Mi Router 4A Gigabit Edition"/model = "星 新 课 代 表 制 作 出 品"/g' target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit.dts
 
-sed -i "s/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g" target/linux/ramips/Makefile
+sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
