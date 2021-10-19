@@ -6,6 +6,10 @@
 
 感谢[ababwbq](https://www.right.com.cn/FORUM/forum.php?mod=viewthread&tid=4091589&extra=page%3D1%26filter%3Dtypeid%26typeid%3D55)提供的参考文章。
 
+壁纸参考[主题](https://github.com/XXKDB/luci-theme-argon_armygreen)
+
+---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
 小米4A千兆版breed直刷版
 
 2021-5-30  加入自动更新并编译。
