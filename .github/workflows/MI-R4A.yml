@@ -89,10 +89,10 @@ jobs:
         mv R4A-Pro/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
         mv R4A-Pro/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
         mv R4A-Pro/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
-        mv R4A-Pro/favicon.ico openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/favicon.ico
-        mv R4A-Pro/logo.png openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/logo.png      
-        mv R4A-Pro/bg/main_bg.jpg openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg.jpg
-        mv R4A-Pro/bg/main_bg_5k.jpg openwrt/feeds/kenzo/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg       
+        mv Redmi-AX6/favicon.ico openwrt/package/lean/luci-theme-ifit/files/htdocs/favicon.ico
+        mv Redmi-AX6/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png      
+        mv Redmi-AX6/bg/main_bg.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg.jpg
+        mv Redmi-AX6/bg/main_bg_5k.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg  
         mv R4A-Pro/banner openwrt/package/base-files/files/etc/banner
 
     - name: SSH 开启
