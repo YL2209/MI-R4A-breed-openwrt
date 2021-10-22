@@ -29,7 +29,8 @@ sed -i "/exit 0/i\ " package/lean/default-settings/files/zzz-default-settings
 #更改主机型号，支持中文。 
 sed -i 's/model = "Redmi AX6"/model = "新 星 课 代 表 制 作 出 品"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
 
-#sed -i "s/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g" target/linux/ramips/Makefile
+#修正连接数（by ベ七秒鱼ベ）
+sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
