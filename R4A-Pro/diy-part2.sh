@@ -11,26 +11,23 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
-#rm -rf package/lean/luci-theme-argon
-#git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom.git package/lean/luci-theme-infinityfreedom
 # 修改openwrt登陆地址,把下面的192.168.31.1修改成你想要的就可以了
 sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字，把XXKDB-R4A修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' package/lean/default-settings/files/zzz-default-settings
-#sed -i '#sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user#a\iptables -t nat -N PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
-#sed -i '#iptables -t nat -N PrivoxyUA#a\iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' package/lean/default-settings/files/zzz-default-settings
-#sed -i '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA#a\iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' package/lean/default-settings/files/zzz-default-settings
-#sed -i '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN#a\iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' package/lean/default-settings/files/zzz-default-settings
 
-#sed -i '#$(INSTALL_BIN) ./coremark.sh $(1)/etc/#a\$(INSTALL_BIN) ./dr.sh $(1)/etc/dr/' feeds/packages/utils/coremark/Makefile
-#sed -i '[ -n "$${IPKG_INSTROOT}" ] || echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\[ -n "$${IPKG_INSTROOT}" ] || echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/Makefile
-#sed -i '#echo "0 4 * * * /etc/coremark.sh" >> /etc/crontabs/root#a\echo "*/1 * * * * /etc/dr/dr.sh" >> /etc/crontabs/root' feeds/packages/utils/coremark/coremark
+sed -i "/exit 0/i\echo '#iptables -t nat -N PrivoxyUA' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 443 -j REDIRECT --to-ports 8118' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\ " package/lean/default-settings/files/zzz-default-settings
+
 
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 #sed -i "s/OpenWrt /ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
-sed -i 's/OpenWrt /星新课代表 /g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt /编译时间 $(TZ=UTC-8 date "+%Y.%m.%d") @ 星新课代表 /g' package/lean/default-settings/files/zzz-default-settings
 
 #更改主机型号，支持中文。 
 sed -i 's/model = "Xiaomi Mi Router 4A Gigabit Edition"/model = "星 新 课 代 表 制 作 出 品"/g' target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit.dts
@@ -52,6 +49,10 @@ rm -rf package/kenzo/luci-theme-ifit
 git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 #git clone https://github.com/YL2209/luci-theme-edge2.git package/lean/luci-theme-edge2
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
+
+
+#修改符号
+sed -i 's/content:"®"/content:"☭"/g' package/lean/luci-theme-ifit/files/htdocs/css/style.css
 
 # 修改luci-theme-argon_armygreen主题渐变色，16进制RGB
 #登录页面背景颜色+半透明
@@ -118,8 +119,6 @@ sed -i 's/#5e72e4/#407994/g' package/lean/luci-theme-argon_armygreen/htdocs/luci
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
-#sed -i 's/luci-theme-bootstrap/luci-theme-edge2/g' feeds/luci/collections/luci/Makefile
-#sed -i 's/luci-theme-bootstrap/luci-theme-edge/g' ./feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-bootstrap/luci-theme-argon_armygreen/g' ./feeds/luci/collections/luci/Makefile
 
 # 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
