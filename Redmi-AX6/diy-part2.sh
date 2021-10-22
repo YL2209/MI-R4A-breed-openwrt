@@ -43,6 +43,9 @@ rm -rf package/kenzo/luci-theme-ifit
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
 git clone https://github.com/YL2209/luci-theme-ifit.git package/lean/luci-theme-ifit
 
+#修改符号
+sed -i 's/content:"®"/content:"☭"/g' package/lean/luci-theme-ifit/files/htdocs/css/style.css
+
 # 修改luci-theme-argon_armygreen主题渐变色，16进制RGB
 #登录页面背景颜色+半透明
 sed -i 's/#f7fafc/rgba(134,176,197, .5)/g' package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/css/style.css
