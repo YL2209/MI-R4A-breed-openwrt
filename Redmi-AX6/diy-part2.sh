@@ -19,6 +19,13 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' packag
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /星新课代表 /g' package/lean/default-settings/files/zzz-default-settings
 
+sed -i "/exit 0/i\echo '#iptables -t nat -N PrivoxyUA' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 443 -j REDIRECT --to-ports 8118' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
+sed -i "/exit 0/i\ " package/lean/default-settings/files/zzz-default-settings
+
 #更改主机型号，支持中文。 
 sed -i 's/model = "Redmi AX6"/model = "新 星 课 代 表 制 作 出 品"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
 
