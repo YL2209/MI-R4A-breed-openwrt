@@ -27,11 +27,11 @@ env:
   DIY_P1_SH: R4A-Pro/diy-part1.sh
   DIY_P2_SH: R4A-Pro/diy-part2.sh
   DIY_P3_SH: R4A-Pro/diy-part3.sh
-  UPLOAD_BIN_DIR: true
-  UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: false
+  UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: false
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
