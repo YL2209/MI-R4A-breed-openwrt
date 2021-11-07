@@ -30,15 +30,15 @@ sed -i "/exit 0/i\ " package/lean/default-settings/files/zzz-default-settings
 sed -i 's/model = "Redmi AX6"/model = "新 星 课 代 表 制 作 出 品"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
 
 #修正连接数（by ベ七秒鱼ベ）
-sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
+#sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sysctl.conf
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
 rm -rf package/lean/luci-theme-bootstrap
 rm -rf package/lean/luci-theme-material
 rm -rf package/lean/luci-theme-netgear
-rm -rf feeds/kenzo/luci-theme-ifit
-rm -rf package/kenzo/luci-theme-ifit
+#rm -rf feeds/kenzo/luci-theme-ifit
+#rm -rf package/kenzo/luci-theme-ifit
 
 #下载主题luci-theme-argon
 git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/luci-theme-argon_armygreen
@@ -68,8 +68,6 @@ sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/theme
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon_armygreen/g' ./feeds/luci/collections/luci/Makefile
 
-# 设置密码为空（安装固件时无需密码登陆，然后自己修改想要的密码）
-#sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings
 
 # 修改想要的root密码
 sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$f2QecoCH$2z6ZS7SynroxrP4I5bd3H.:18729:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
