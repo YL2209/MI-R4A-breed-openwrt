@@ -11,7 +11,10 @@
 #
 
 # 修改openwrt登陆地址,把下面的192.168.31.1修改成你想要的就可以了
-sed -i 's/192.168.1.1/10.10.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
+
+target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
+echo -e "\nCONFIG_NETFILTER_NETLINK_GLUE_CT=y" >> target/linux/$target/config*
 
 # 修改主机名字，把XXKDB-R4A修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' package/lean/default-settings/files/zzz-default-settings
@@ -19,12 +22,6 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' packag
 # 版本号里显示一个自己的名字（ababwnq build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些都是后增加的）
 sed -i 's/OpenWrt /编译时间 $(TZ=UTC-8 date "+%Y.%m.%d") @ 星新课代表 /g' package/lean/default-settings/files/zzz-default-settings
 
-sed -i "/exit 0/i\echo '#iptables -t nat -N PrivoxyUA' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
-sed -i "/exit 0/i\echo '#iptables -t nat -A PREROUTING -i br-lan -p tcp -j PrivoxyUA' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
-sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -d 192.168.0.0/16 -j RETURN' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
-sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 80 -j REDIRECT --to-ports 8118' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
-sed -i "/exit 0/i\echo '#iptables -t nat -A PrivoxyUA -p tcp --dport 443 -j REDIRECT --to-ports 8118' >> /etc/firewall.user" package/lean/default-settings/files/zzz-default-settings
-sed -i "/exit 0/i\ " package/lean/default-settings/files/zzz-default-settings
 
 #更改主机型号，支持中文。 
 sed -i 's/model = "Redmi AX6"/model = "新 星 课 代 表 制 作 出 品"/g' target/linux/ipq807x/files/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
