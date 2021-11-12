@@ -22,8 +22,8 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  FEEDS_CONF: X86/R4A.conf.default
-  CONFIG_FILE: X86/R4A.config
+  FEEDS_CONF: X86/X86.conf.default
+  CONFIG_FILE: X86/X86.config
   DIY_P1_SH: X86/diy-part1.sh
   DIY_P2_SH: X86/diy-part2.sh
   DIY_P3_SH: X86/diy-part3.sh
