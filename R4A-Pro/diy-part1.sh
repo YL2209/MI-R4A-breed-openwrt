@@ -26,6 +26,9 @@ sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf
 # passwall依赖
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
+git clone https://github.com/CHN-beta/rkp-ipid package/rkp-ipid
+git clone https://github.com/Zxilly/UA2F package/UA2F
+
 ### 修改为R4A千兆版Breed直刷版
 ## mt7621_xiaomi_mir3g-v2.dts 好像被改成了 mt7621_xiaomi_mi-router-4a-3g-v2.dtsi  测试一下
 ## 1.修改 mt7621_xiaomi_mir3g-v2.dts
