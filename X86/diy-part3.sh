@@ -10,13 +10,13 @@
 # Description: OpenWrt DIY script part 3 (Before Update feeds)
 #
 
-mv R4A-Pro/bg/favicon.ico openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
-mv R4A-Pro/bg/logo.png openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
-mv R4A-Pro/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
-mv R4A-Pro/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
-mv R4A-Pro/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
-mv Redmi-AX6/favicon.ico openwrt/package/lean/luci-theme-ifit/files/htdocs/favicon.ico
-mv Redmi-AX6/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png      
-mv Redmi-AX6/bg/main_bg.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg.jpg
-mv Redmi-AX6/bg/main_bg_5k.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg  
-mv R4A-Pro/banner openwrt/package/base-files/files/etc/banner
+mv X86/bg/favicon.ico openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/favicon.ico
+mv X86/bg/logo.png openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/logo.png
+mv X86/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg1.jpg
+mv X86/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
+mv X86/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
+mv X86/favicon.ico openwrt/package/lean/luci-theme-ifit/files/htdocs/favicon.ico
+mv X86/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png      
+mv X86bg/main_bg.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg.jpg
+mv X86/bg/main_bg_5k.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg  
+mv X86/banner openwrt/package/base-files/files/etc/banner
