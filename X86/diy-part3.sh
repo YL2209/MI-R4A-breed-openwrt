@@ -16,7 +16,7 @@ mv X86/bg/bg1.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-st
 mv X86/bg/bg2.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg2.jpg
 mv X86/bg/bg3.jpg openwrt/package/lean/luci-theme-argon_armygreen/htdocs/luci-static/argon_armygreen/img/bg3.jpg
 mv X86/favicon.ico openwrt/package/lean/luci-theme-ifit/files/htdocs/favicon.ico
-mv X86/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png      
+# mv X86/logo.png openwrt/package/lean/luci-theme-ifit/files/htdocs/logo.png      
 mv X86bg/main_bg.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg.jpg
 mv X86/bg/main_bg_5k.jpg openwrt/package/lean/luci-theme-ifit/files/htdocs/images/main_bg_5k.jpg  
 mv X86/banner openwrt/package/base-files/files/etc/banner
