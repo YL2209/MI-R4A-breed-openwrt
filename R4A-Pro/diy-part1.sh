@@ -21,12 +21,10 @@
 # sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 
 
-# 添加插件源码
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-# passwall依赖
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+
 
 git clone https://github.com/CHN-beta/rkp-ipid package/rkp-ipid
+
 git clone https://github.com/Zxilly/UA2F package/UA2F
 
 ### 修改为R4A千兆版Breed直刷版
