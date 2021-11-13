@@ -28,7 +28,9 @@ sed -i 's/OpenWrt /编译时间 $(TZ=UTC-8 date "+%Y.%m.%d") @ 星新课代表 /
 #更改主机型号，支持中文。 
 sed -i 's/model = "Xiaomi Mi Router 4A Gigabit Edition"/model = "星 新 课 代 表 制 作 出 品"/g' target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit.dts
 
-sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
+# sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
+
+sed -i "/CPU usage/a\<tr><td width="33%">关于</td><td><a href="https://myxiaochuang.gitee.io">作者博客</a></td></tr>" package/lean/autocore/files/arm/index.htm
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
