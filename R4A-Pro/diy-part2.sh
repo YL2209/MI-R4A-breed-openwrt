@@ -15,8 +15,8 @@
 sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
 
 
-target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
-echo -e "\nCONFIG_NETFILTER_NETLINK_GLUE_CT=y" >> target/linux/$target/config*
+# target=$(grep "^CONFIG_TARGET" .config --max-count=1 | awk -F "=" '{print $1}' | awk -F "_" '{print $3}')
+# echo -e "\nCONFIG_NETFILTER_NETLINK_GLUE_CT=y" >> target/linux/$target/config*
 
 # 修改主机名字，把XXKDB-R4A修改你喜欢的就行（不能纯数字或者使用中文）
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='MiWIFI'' package/lean/default-settings/files/zzz-default-settings
@@ -31,6 +31,7 @@ sed -i 's/model = "Xiaomi Mi Router 4A Gigabit Edition"/model = "星 新 课 代
 # sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
 
 sed -i "/CPU usage/a\<tr><td width="33%">关于</td><td><a href="https://myxiaochuang.gitee.io">作者博客</a></td></tr>" package/lean/autocore/files/arm/index.htm
+sed -i "/CPU usage/a\<tr><td width="33%">关于</td><td><a href="https://myxiaochuang.gitee.io">作者博客</a></td></tr>" package/lean/autocore/files/x86/index.htm
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
