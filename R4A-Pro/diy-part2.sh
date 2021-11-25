@@ -30,6 +30,12 @@ sed -i 's/model = "Xiaomi Mi Router 4A Gigabit Edition"/model = "小米4A千兆�
 
 # sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
 
+# 状态系统增加个人信息
+sed -i "s/exit 0//" package/lean/default-settings/files/zzz-default-settings
+echo "sed -i '/CPU usage/a\<tr><td width="33%">关于</td><td><a href="https://myxiaochuang.gitee.io">作者博客</a></td></tr>' /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+echo "" >> package/lean/default-settings/files/zzz-default-settings
+echo "" >> package/lean/default-settings/files/zzz-default-settings
+echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
 
 #删除原默认主题
 rm -rf package/lean/luci-theme-argon
