@@ -32,9 +32,16 @@ sed -i 's/model = "Xiaomi Mi Router 4A Gigabit Edition"/model = "小米4A千兆�
 
 # 状态系统增加个性信息
 sed -i "s/exit 0//" package/lean/default-settings/files/zzz-default-settings
-echo 'sed -i "/CPU usage/a\<tr><td width="33%">关于</td><td><a class="author-blog" href="https://myxiaochuang.gitee.io">作者博客</a>&nbsp;&nbsp;&nbsp;<a class="author-blog" href="https://space.bilibili.com/359789531">哔哩哔哩</a></td></tr>" /usr/lib/lua/luci/view/admin_status/index.htm' >> package/lean/default-settings/files/zzz-default-settings
-echo 'sed -i "/作者博客/a\<tr><td width="33%">编译源地址</td><td><a class="author-blog" href="https://github.com/YL2209/MI-R4A-breed-openwrt">编译源地址</a></td></tr>" /usr/lib/lua/luci/view/admin_status/index.htm' >> package/lean/default-settings/files/zzz-default-settings
-echo 'sed -i "/编译源地址/a\<tr><td width="33%">表情包</td><td><img class="emoji-icon" src="https://cdn.jsdelivr.net/gh/XXKDB/img_cdn/img/beian2.gif"></td></tr>" /usr/lib/lua/luci/view/admin_status/index.htm' >> package/lean/default-settings/files/zzz-default-settings
+
+echo "sed -i '/CPU usage/a\<tr><td width=\"33%\">关于</td><td><a class=\"author-blog\" href=\"https://myxiaochuang.gitee.io\">作者博客</a>&nbsp;&nbsp;&nbsp;<a class=\"author-blog\" href=\"https://github.com/YL2209/MI-R4A-breed-openwrt\">编译源地址</a>&nbsp;&nbsp;&nbsp;<a class=\"author-blog\" href=\"https://space.bilibili.com/359789531\">哔哩哔哩</a></td></tr>' /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+echo "sed -i '/关于/a\<tr><td width=\"33%\">天气</td><td><iframe scrolling=\"no\" src=\"https://tianqiapi.com/api.php?style=tm\&color=ff5200\&skin=gif\" frameborder=\"0\" width=\"270\" height=\"20\" allowtransparency=\"true\"></iframe></td></tr>' /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+echo "sed -i '/天气/a\<tr><td width=\"33%\"> </td><td class=\"container\" style=\"height:200px;\"><canvas class=\"illo\" width=\"640\" height=\"640\" style=\"max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;\"></canvas></td></tr>' /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+
+echo "echo '<script src=\"https://cdn.jsdelivr.net/gh/XXKDB/img_cdn/js/twopeople1.js\"></script>' >> /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+echo "echo '<script src=\"https://cdn.jsdelivr.net/gh/XXKDB/img_cdn/js/zdog.dist.js\"></script>' >> /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+echo "echo '<script id=\"rendered-js\" src=\"https://cdn.jsdelivr.net/gh/XXKDB/img_cdn/js/pen.js\"></script>' >> /usr/lib/lua/luci/view/admin_status/index.htm" >> package/lean/default-settings/files/zzz-default-settings
+echo "echo '<script src=\"https://cdn.jsdelivr.net/gh/XXKDB/img_cdn/js/ginkgo-leaf.js\"></script>' >> /usr/lib/lua/luci/view/footer.htm" >> package/lean/default-settings/files/zzz-default-settings
+
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 echo "" >> package/lean/default-settings/files/zzz-default-settings
 echo "exit 0" >> package/lean/default-settings/files/zzz-default-settings
