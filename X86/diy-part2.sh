@@ -65,7 +65,7 @@ git clone https://github.com/XXKDB/luci-theme-argon_armygreen.git package/lean/l
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
 git clone https://github.com/YL2209/luci-app-live2d.git package/lean/luci-app-live2d
-git clone https://github.com/YL2209/lici-live2d.git package/lean/live2d
+git clone https://github.com/YL2209/luci-live2d.git package/lean/live2d
 
 #修改符号
 sed -i 's/content:"®"/content:"☭"/g' package/lean/luci-theme-ifit/files/htdocs/css/style.css
