@@ -17,9 +17,8 @@ env:
 
 on:
   workflow_dispatch:
-  schedule:
-# 时间表：
-# - cron： 0 */18 * * *
+#  schedule:
+#    - cron: 0 */18 * * *
 
 jobs:
   check:
