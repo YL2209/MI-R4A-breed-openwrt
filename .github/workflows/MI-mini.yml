@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: MI-R4A
+name: MI-mini
 
 on:
   repository_dispatch:
